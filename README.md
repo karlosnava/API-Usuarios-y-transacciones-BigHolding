@@ -76,13 +76,13 @@ números, imágenes, direcciones, etc.
 Clone el proyecto
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/karlosnava/API-Usuarios-y-transacciones-BigHolding.git
 ```
 
 Vaya al directorio del proyecto
 
 ```bash
-  cd my-project
+  cd API-Usuarios-y-transacciones-BigHolding
 ```
 
 Instale dependencias
@@ -92,9 +92,27 @@ Instale dependencias
   npm install
 ```
 
+Cree una base de datos llamada *bigholding_test* y corra las migraciones
+
+```bash
+  php artisan migrate --seed
+```
+
 Inicie el servidor
 
 ```bash
   php artisan serve
 ```
 
+
+
+# Uso de la API
+Para listar todos los usuarios haga una petición GET a la ruta
+```bash
+  http://127.0.0.1:8000/api/
+```
+
+Para listar todas las transacciones de un usuario haga una petición GET a la ruta (aquí se implementa inyección implicita de modelos)
+```bash
+  http://127.0.0.1:8000/api/transactions/{user_id}
+```
